@@ -1,0 +1,30 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+iris_df = pd.read_csv('/Iris.csv')
+iris_df
+iris_df.shape
+iris_df.describe()
+iris_df.columns
+iris_df.axes
+iris_df.isna().sum()
+iris_df['Species'].unique()
+iris_df['Species'].replace({'Iris-setosa':0,'Iris-versicolor':1,'Iris-virginica':2},inplace = True)
+iris_df.describe()
+iris_df.info()
+iris_df.plot(x = 'SepalWidthCm', y = 'SepalLengthCm', kind = 'scatter')
+iris_df.plot(x = 'PetalLengthCm', y = 'SepalLengthCm', kind = 'scatter')
+df1 = iris_df.head(10)
+df1df1.plot(x = 'SepalLengthCm', y = 'PetalLengthCm', kind = 'bar')
+df1.plot(x = 'SepalWidthCm', y = 'PetalLengthCm', kind = 'pie')
+df1.plot(x = 'SepalWidthCm', y = 'PetalWidthCm', kind = 'line')
+df1.plot(x = 'SepalWidthCm', y = 'SepalLengthCm', kind = 'box')
+plt.figure(figsize = (30,30))
+sns.pairplot(iris_df,kind = 'scatter')
+sns.pairplot(iris_df,kind = 'scatter', hue = 'Species')
+iris_df.corr()
+plt.figure(figsize = (10,7))
+sns.heatmap(iris_df.corr(), annot = True)
+plt.figure(figsize = (10,7))
+sns.heatmap(iris_df.corr(), annot = True, cmap = 'YlGnBu')
